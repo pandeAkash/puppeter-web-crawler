@@ -31,26 +31,23 @@ This project is a Node.js application that uses Puppeteer to crawl web pages, ex
     npm install
     ```
   
-3. Running project locally
+3. Running the project locally
 
-  1. Transpile TypeScript to JavaScript
-    ```bash
-    npx tsc
+    1. Transpile TypeScript to JavaScript
+         ```bash
+            yarn run build
+         ```
+    2. Build the nodejs server
+         ```bash
+            yarn run start.
+         ```
+
+5. Accessing / Testing API
+   ```bash
+    curl "http://localhost:8000/crawl-page?url=http://www.cnn.com/2013/06/10/politics/edward-snowden-profile/"
     ```
 
-  2. Build the nodejs server
-    ```bash
-    yarn run start.
-    ```
+### Future scope
+- Can add a feature to capture screenshots of the page and store them in cloud storage
+- Can add a feature to extract all links on the page and add them in the database
 
-### Project Structure
-  puppeteer-web-crawler/
-  ├── src/
-  │ ├── handler.ts # Lambda handler
-  │ └── crawler.ts # Puppeteer web crawler
-  ├── dist/ # Compiled JavaScript files
-  ├── .serverless/ # Serverless packaged files
-  ├── package.json
-  ├── serverless.yml
-  ├── tsconfig.json
-  └── README.md
