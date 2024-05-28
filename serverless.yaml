@@ -1,0 +1,23 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: akashprojects
+service: puppeteer-web-crawler
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  deploymentMethod: direct
+
+functions:
+  crawlPage:
+    handler: src/handlers/crawlerLambda.crawlPageHandler
+    events:
+      - http:
+          path: crawl
+          method: get
+
+plugins:
+  - serverless-plugin-typescript
+
+package:
+  exclude:
+    - node_modules/**
